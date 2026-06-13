@@ -12,6 +12,10 @@
 <meta name="keywords" content="plumber Louisville KY, emergency plumber Louisville, drain cleaning Louisville, water heater repair Louisville, licensed plumber Jefferson County, plumbing company Louisville Kentucky">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://instantplumbingky.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap"></noscript>
 
 <!-- Open Graph -->
 <meta property="og:title" content="Louisville Plumber | Instant Plumbing">
@@ -190,7 +194,7 @@
      Signature: Animated water drops flowing down the page
   ══════════════════════════════════════════ */
 
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+  /* fonts loaded via preconnect in head */
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -721,6 +725,8 @@
 <!-- WATER DROPS CANVAS -->
 <canvas id="water-canvas"></canvas>
 
+<main>
+
 <!-- ══════════════════════════════════════
      NAVIGATION
 ══════════════════════════════════════ -->
@@ -773,7 +779,7 @@
     </div>
 
     <div>
-      <img src="van.png" alt="Instant Plumbing service van in Louisville KY" style="width:100%; border-radius:12px; object-fit:cover; margin-bottom:20px; box-shadow:0 8px 32px rgba(0,0,0,0.4);">
+      <img src="van.jpg" alt="Instant Plumbing service van in Louisville KY" width="600" height="450" style="width:100%; border-radius:12px; object-fit:cover; margin-bottom:20px; box-shadow:0 8px 32px rgba(0,0,0,0.4);" loading="eager" fetchpriority="high">
       <div class="hero-card">
       <h3>BOOK YOUR VISIT</h3>
       <!-- ═══════════════════════════════════════
@@ -1444,6 +1450,8 @@ document.querySelectorAll('.faq-tab').forEach(tab => {
     <span>Licensed · Insured · Master Plumber</span>
   </div>
 </footer>
+
+</main>
 
 <!-- STICKY MOBILE CTA -->
 <div class="sticky-mobile">
