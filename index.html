@@ -336,8 +336,8 @@
   }
   .btn-primary:hover { background: var(--water-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,168,232,0.4); }
   .btn-emergency {
-    background: transparent;
-    color: var(--copper);
+    background: var(--copper);
+    color: #fff;
     border: 2px solid var(--copper);
     padding: 14px 28px;
     border-radius: 8px;
@@ -346,15 +346,43 @@
     transition: all 0.2s;
     display: inline-flex; align-items: center; gap: 8px;
   }
-  .btn-emergency:hover { background: rgba(201,125,78,0.1); transform: translateY(-2px); }
+  .btn-emergency:hover { background: #b86d3e; border-color: #b86d3e; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,125,78,0.4); }
+  .btn-emergency:focus { outline: 3px solid #fff; outline-offset: 2px; }
+  .btn-primary:focus { outline: 3px solid var(--water-light); outline-offset: 2px; }
+
+  /* Trust badges — single row desktop, 2x2 mobile */
   .hero-trust {
-    display: flex; flex-wrap: wrap; gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 12px 20px;
+    justify-content: start;
+  }
+  @media(max-width: 600px) {
+    .hero-trust { grid-template-columns: repeat(2, 1fr); }
   }
   .trust-item {
     display: flex; align-items: center; gap: 8px;
     font-size: 0.82rem; color: var(--ice-dim);
+    white-space: nowrap;
   }
   .trust-item .check { color: var(--success); font-weight: 700; }
+
+  /* Photo placeholder */
+  .hero-photo-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: var(--navy-light);
+    border: 2px dashed rgba(0,168,232,0.25);
+    border-radius: 12px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    color: var(--text-muted);
+    font-size: 0.82rem; text-align: center;
+    padding: 20px;
+  }
+  .hero-photo-placeholder svg { opacity: 0.4; }
 
   /* ── HERO CARD ── */
   .hero-card {
@@ -699,11 +727,14 @@
 <nav>
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <img src="logo.png" alt="Instant Plumbing" style="height:40px; width:auto; object-fit:contain;">
+      <img src="logo.png" alt="Instant Plumbing" style="height:52px; width:auto; object-fit:contain;">
     </a>
     <div class="nav-phone">
       <span class="nav-number">(502) 747-9052</span>
-      <a href="tel:(502) 747-9052" class="call-btn">📞 CALL NOW</a>
+      <a href="tel:5027479052" class="call-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        CALL NOW
+      </a>
     </div>
   </div>
 </nav>
@@ -725,10 +756,12 @@
       </p>
       <div class="hero-ctas">
         <button class="btn-primary" onclick="HCPWidget.openModal()">
-          ⚡ INSTANT Dispatch
-        </a>
-        <a href="tel:(502) 747-9052" class="btn-emergency">
-          🚨 Emergency Line
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5C3.9 4 3 4.9 3 6v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+          INSTANT Dispatch
+        </button>
+        <a href="tel:5027479052" class="btn-emergency">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+          Emergency Line
         </a>
       </div>
       <div class="hero-trust">
@@ -739,8 +772,13 @@
       </div>
     </div>
 
-    <div class="hero-card">
-      <h3>⚡ BOOK YOUR VISIT</h3>
+    <div>
+      <div class="hero-photo-placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+        <span>PHOTO: Owner in branded shirt<br>or service truck</span>
+      </div>
+      <div class="hero-card">
+      <h3>BOOK YOUR VISIT</h3>
       <!-- ═══════════════════════════════════════
            HOUSECALL PRO INTEGRATION POINT
            Replace this placeholder with either:
@@ -749,12 +787,14 @@
 
       -->
       <button data-token="4ca0b783eb824ba08b53bef0135f96c5" data-orgname="Instant-Plumbing" class="btn-primary hcp-button" onclick="HCPWidget.openModal()" style="width:100%; justify-content:center; margin-bottom:12px; font-size:1.05rem; padding:18px;">
-        ⚡ INSTANT Dispatch →
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5C3.9 4 3 4.9 3 6v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+        INSTANT Dispatch
       </button>
       <div class="price-badge">
         <span class="label">Diagnostic Visit</span>
         <span class="val">$79 (waived w/ repair)</span>
       </div>
+    </div>
     </div>
   </div>
 </section>
@@ -1410,8 +1450,8 @@ document.querySelectorAll('.faq-tab').forEach(tab => {
 
 <!-- STICKY MOBILE CTA -->
 <div class="sticky-mobile">
-  <a href="tel:(502) 747-9052" class="sticky-call">📞 Call Now</a>
-  <button class="sticky-book" onclick="HCPWidget.openModal()">⚡ INSTANT Dispatch</button>
+  <a href="tel:5027479052" class="sticky-call">Call Now</a>
+  <button class="sticky-book" onclick="HCPWidget.openModal()">INSTANT Dispatch</button>
 </div>
 
 <!-- ══════════════════════════════════════
