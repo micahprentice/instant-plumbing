@@ -34,7 +34,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,0.9
 .nav-links{display:flex;align-items:center;gap:20px;}
 .nav-link{color:var(--ice-dim);font-size:0.88rem;font-weight:500;transition:color 0.2s;}
 .nav-link:hover{color:var(--white);}
-.call-btn{background:var(--water);color:var(--navy);padding:10px 20px;border-radius:6px;font-weight:700;font-size:0.88rem;transition:background 0.2s;}
+.call-btn{flex-shrink:0;background:var(--water);color:var(--navy);padding:10px 20px;border-radius:6px;font-weight:700;font-size:0.88rem;transition:background 0.2s;}
 .call-btn:hover{background:var(--water-light);}
 .page-hero{position:relative;min-height:480px;display:flex;align-items:center;padding:120px 20px 80px;overflow:hidden;background:linear-gradient(160deg,#0a1628 0%,#0d2040 60%,#0a1628 100%);}
 .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.18;z-index:0;}
@@ -89,8 +89,7 @@ footer{background:#060E1A;padding:40px 20px;border-top:1px solid rgba(255,255,25
       <a href="index.html#services" class="nav-link">Services</a>
       <a href="index.html#commercial" class="nav-link">Commercial</a>
       <a href="index.html#areas" class="nav-link">Service Areas</a>
-      <a href="tel:5027479052" class="call-btn">(502) 747-9052</a>
-    </div>
+      </div><a href="tel:5027479052" class="call-btn">(502) 747-9052</a>
   </div>
 </nav>
 <div class="page-hero">
