@@ -28,13 +28,13 @@ body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--white);li
 a{text-decoration:none;color:inherit;}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,0.96);
   backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:0 20px;}
-.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:2px;color:var(--white);display:flex;align-items:center;gap:6px;}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;flex-wrap:nowrap;}
+.nav-logo{flex-shrink:0;font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:2px;color:var(--white);display:flex;align-items:center;gap:6px;}
 .nav-logo span{color:var(--water);}
 .nav-links{display:flex;align-items:center;gap:20px;}
 .nav-link{color:var(--ice-dim);font-size:0.88rem;font-weight:500;transition:color 0.2s;}
 .nav-link:hover{color:var(--white);}
-.call-btn{flex-shrink:0;background:var(--water);color:var(--navy);padding:10px 20px;border-radius:6px;font-weight:700;font-size:0.88rem;transition:background 0.2s;}
+.call-btn{flex-shrink:0;flex-shrink:0;background:var(--water);color:var(--navy);padding:10px 20px;border-radius:6px;font-weight:700;font-size:0.88rem;transition:background 0.2s;}
 .call-btn:hover{background:var(--water-light);}
 .page-hero{position:relative;min-height:480px;display:flex;align-items:center;padding:120px 20px 80px;overflow:hidden;background:linear-gradient(160deg,#0a1628 0%,#0d2040 60%,#0a1628 100%);}
 .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.18;z-index:0;}
@@ -43,7 +43,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,0.9
 h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,6vw,4.5rem);line-height:1;margin-bottom:20px;}
 .accent{color:var(--water);}
 .hero-sub{color:var(--ice-dim);font-size:1rem;line-height:1.7;margin-bottom:28px;max-width:540px;}
-.btns{display:flex;flex-wrap:wrap;gap:12px;}
+.btns{display:flex;flex-wrap:wrap;gap:10px;}
 .btn-primary{background:var(--water);color:var(--navy);border:none;padding:14px 28px;border-radius:8px;font-weight:700;font-size:0.95rem;cursor:pointer;display:flex;align-items:center;gap:8px;transition:all 0.2s;}
 .btn-primary:hover{background:var(--water-light);transform:translateY(-1px);}
 .btn-emergency{background:transparent;color:var(--copper);border:2px solid var(--copper);padding:14px 28px;border-radius:8px;font-weight:700;font-size:0.95rem;transition:all 0.2s;}
@@ -73,7 +73,7 @@ footer{background:#060E1A;padding:40px 20px;border-top:1px solid rgba(255,255,25
 .f-links a{color:var(--ice-dim);font-size:0.85rem;transition:color 0.2s;}
 .f-links a:hover{color:var(--white);}
 .f-meta{font-size:0.75rem;color:var(--text-muted);}
-@media(max-width:768px){.nav-links .nav-link{display:none;}.cards{grid-template-columns:1fr;}}
+@media(max-width:768px){.nav-links .nav-link{display:none;}.call-btn{padding:8px 12px;font-size:0.8rem;}.cards{grid-template-columns:1fr;}}
 .services-area-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:48px;}
 .svc-link{background:rgba(0,168,232,0.06);border:1px solid rgba(0,168,232,0.15);border-radius:10px;
   padding:18px 20px;color:var(--water);font-weight:600;font-size:0.9rem;display:block;transition:all 0.2s;}
@@ -185,7 +185,7 @@ footer{background:#060E1A;padding:40px 20px;border-top:1px solid rgba(255,255,25
       </div>
       <div>
         <div style="font-size:0.65rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#00a8e8;margin-bottom:14px;">Service Areas</div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;">
           <a href="louisville-plumber.html" style="color:rgba(255,255,255,0.6);font-size:0.82rem;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">→ Louisville</a>
           <a href="st-matthews-plumber.html" style="color:rgba(255,255,255,0.6);font-size:0.82rem;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">→ St. Matthews</a>
           <a href="middletown-plumber.html" style="color:rgba(255,255,255,0.6);font-size:0.82rem;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'">→ Middletown</a>
