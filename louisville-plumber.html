@@ -111,6 +111,58 @@ footer{background:#060e1c;border-top:1px solid rgba(255,255,255,0.06);padding:40
   padding:18px 20px;color:var(--water);font-weight:600;font-size:0.9rem;display:block;
   transition:all 0.2s;}
 .svc-link:hover{background:rgba(0,168,232,0.12);border-color:rgba(0,168,232,0.35);}
+
+  /* ── NAV DROPDOWN ── */
+  .nav-dropdown { position: relative; flex-shrink: 0; }
+  .nav-dropdown-btn {
+    background: rgba(0,168,232,0.1);
+    border: 1px solid rgba(0,168,232,0.3);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: flex; align-items: center; gap: 6px;
+    white-space: nowrap;
+    transition: background 0.2s;
+  }
+  .nav-dropdown-btn:hover { background: rgba(0,168,232,0.2); }
+  .nav-dropdown-btn svg { transition: transform 0.2s; }
+  .nav-dropdown-btn.open svg { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: #0a1628;
+    border: 1px solid rgba(0,168,232,0.2);
+    border-radius: 10px;
+    padding: 16px;
+    min-width: 480px;
+    z-index: 999;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .nav-dropdown-menu.open { display: grid; }
+  .nav-col-title {
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: #00a8e8; margin-bottom: 10px;
+  }
+  .nav-col a {
+    display: block; color: rgba(255,255,255,0.65);
+    font-size: 0.82rem; padding: 4px 0;
+    text-decoration: none; transition: color 0.15s;
+  }
+  .nav-col a:hover { color: #fff; }
+  @media(max-width: 600px) {
+    .nav-dropdown-menu { min-width: calc(100vw - 32px); right: -8px; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .nav-dropdown-btn span { display: none; }
+  }
 </style>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
@@ -251,5 +303,18 @@ footer{background:#060e1c;border-top:1px solid rgba(255,255,255,0.06);padding:40
   </div>
 </footer>
 <script src="https://widget.housecallpro.com/widget.js" data-token="4ca0b783eb824ba08b53bef0135f96c5" data-orgname="Instant-Plumbing" async></script>
+
+<script>
+function toggleNavMenu(btn) {
+  btn.classList.toggle('open');
+  document.getElementById('navMenu').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.nav-dropdown')) {
+    document.querySelectorAll('.nav-dropdown-btn').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.nav-dropdown-menu').forEach(m => m.classList.remove('open'));
+  }
+});
+</script>
 </body>
 </html>
