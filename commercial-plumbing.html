@@ -65,8 +65,8 @@ section.content{padding:80px 20px;}
 .section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.2rem);
   line-height:1;margin-bottom:16px;}
 .section-sub{color:var(--ice-dim);max-width:600px;margin-bottom:48px;line-height:1.7;}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-bottom:48px;}
-.card{background:rgba(255,255,255,0.04);border:1px solid rgba(0,168,232,0.15);
+.cards{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;margin-bottom:48px;}
+.card{flex:0 1 calc(33.333% - 16px);min-width:260px;max-width:380px;display:flex;flex-direction:column;background:rgba(255,255,255,0.04);border:1px solid rgba(0,168,232,0.15);
   border-radius:14px;padding:28px 24px;transition:border-color 0.2s;}
 .card:hover{border-color:rgba(0,168,232,0.4);}
 .card-icon{font-size:1.8rem;margin-bottom:12px;}
