@@ -12,6 +12,7 @@
 <meta name="keywords" content="plumber Louisville KY, commercial plumber Louisville, emergency plumber Louisville, drain cleaning Louisville, water heater repair Louisville, restaurant plumbing Louisville, backflow testing Louisville, licensed plumber Jefferson County, plumbing company Louisville Kentucky">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://instantplumbingky.com/">
+<link rel="preload" as="image" href="/van.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -1320,7 +1321,7 @@
     </div>
 
     <div>
-      <div class="hero-van-card"><img alt="Instant Plumbing service van — licensed master plumber Louisville KY" src="/van.jpg" fetchpriority="high"  alt="Instant Plumbing service van in Louisville KY" width="600" height="450" style="width:100%; border-radius:12px; object-fit:cover; margin-bottom:20px; box-shadow:0 8px 32px rgba(0,0,0,0.4);" loading="eager" fetchpriority="high">
+      <div class="hero-van-card"><img alt="Instant Plumbing service van — licensed master plumber Louisville KY" src="/van.jpg" fetchpriority="high" width="600" height="450" style="width:100%; border-radius:12px; object-fit:cover; margin-bottom:20px; box-shadow:0 8px 32px rgba(0,0,0,0.4);" loading="eager" decoding="sync">
       <div class="hero-card">
       <h2>BOOK YOUR VISIT</h2>
       <!-- ═══════════════════════════════════════
@@ -2244,7 +2245,8 @@ document.querySelectorAll('.faq-tab').forEach(tab => {
      JAVASCRIPT
 ══════════════════════════════════════ -->
 <script>
-/* ── WATER DROPS ANIMATION ── */
+/* ── WATER DROPS ANIMATION — deferred until after load ── */
+window.addEventListener('load', function() {
 (function() {
   const canvas = document.getElementById('water-canvas');
   const ctx = canvas.getContext('2d');
@@ -2356,6 +2358,7 @@ document.querySelectorAll('.faq-tab').forEach(tab => {
     canvas.style.display = 'none';
   }
 })();
+}); // end window.load for canvas
 
 /* ── FAQ ACCORDION ── */
 document.querySelectorAll('.faq-q').forEach(btn => {
@@ -2368,7 +2371,7 @@ document.querySelectorAll('.faq-q').forEach(btn => {
 });
 
 /* ── PHOTO UPLOAD GALLERY ── */
-(function() {
+window.addEventListener('load', function() { (function() {
   const grid = document.getElementById('photo-grid');
   const SLOT_COUNT = 8;
 
@@ -2422,23 +2425,25 @@ document.querySelectorAll('.faq-q').forEach(btn => {
       removeBtn.style.display = 'none';
     });
   }
-})();
+})(); }); // end load
 
-/* ── SCROLL REVEAL ── */
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
-    }
+/* ── SCROLL REVEAL — deferred so elements are visible during LCP ── */
+window.addEventListener('load', function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .why-item, .area-tag').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
   });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.service-card, .why-item, .area-tag').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-  observer.observe(el);
 });
 </script>
 
