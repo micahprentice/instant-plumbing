@@ -2245,9 +2245,14 @@ document.querySelectorAll('.faq-tab').forEach(tab => {
      JAVASCRIPT
 ══════════════════════════════════════ -->
 <script>
-/* ── WATER DROPS ANIMATION — deferred until after load ── */
+/* ── WATER DROPS ANIMATION — desktop only, deferred until after load ── */
 window.addEventListener('load', function() {
 (function() {
+  // Skip entirely on mobile — too CPU-intensive on throttled connections
+  if (window.innerWidth < 768) {
+    document.getElementById('water-canvas').style.display = 'none';
+    return;
+  }
   const canvas = document.getElementById('water-canvas');
   const ctx = canvas.getContext('2d');
   let drops = [];
