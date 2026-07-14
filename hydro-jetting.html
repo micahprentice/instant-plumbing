@@ -66,7 +66,7 @@ section.content{padding:80px 20px;}
   line-height:1;margin-bottom:16px;}
 .section-sub{color:var(--ice-dim);max-width:680px;margin-bottom:48px;line-height:1.7;}
 p.body-text{color:var(--ice-dim);max-width:760px;margin-bottom:20px;line-height:1.8;font-size:0.95rem;}
-.infographic{width:100%;border-radius:16px;border:1px solid rgba(0,168,232,0.2);box-shadow:0 20px 50px rgba(0,0,0,0.4);margin:36px 0 48px;display:block;}
+.infographic-wrap:hover .infographic{opacity:0.9;}
 .divider{border:none;border-top:1px solid rgba(0,168,232,0.12);margin:56px 0;}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-bottom:48px;}
 .card{background:rgba(255,255,255,0.04);border:1px solid rgba(0,168,232,0.15);
@@ -96,6 +96,8 @@ p.body-text{color:var(--ice-dim);max-width:760px;margin-bottom:20px;line-height:
 .price-table td{padding:12px 16px;color:rgba(255,255,255,0.8);border-bottom:1px solid rgba(255,255,255,0.06);}
 .price-table tr:last-child td{border-bottom:none;}
 .price-table .val{color:#fff;font-weight:700;}
+.infographic-wrap{display:block;position:relative;margin:36px 0 8px;}
+.infographic-hint{text-align:center;font-size:0.78rem;color:var(--text-muted);margin-bottom:48px;}
 .faq-item{border-bottom:1px solid rgba(0,168,232,0.12);padding:22px 0;}
 .faq-item:first-child{border-top:1px solid rgba(0,168,232,0.12);}
 .faq-q{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.5px;color:#fff;margin-bottom:10px;}
@@ -113,6 +115,19 @@ footer{background:#060e1c;border-top:1px solid rgba(255,255,255,0.06);padding:40
 .f-links a:hover{color:#fff;}
 .f-meta{font-size:0.75rem;color:var(--text-muted);}
 @media(max-width:768px){.nav-links .nav-link{display:none;}.call-btn{padding:8px 12px;font-size:0.8rem;}.cards{grid-template-columns:1fr;}.spec-band{padding:28px;}}
+@media(max-width:600px){
+  .price-table thead{display:none;}
+  .price-table, .price-table tbody, .price-table tr, .price-table td{display:block;width:100%;}
+  .price-table{border:none;}
+  .price-table tr{margin-bottom:14px;border:1px solid rgba(0,168,232,0.18);border-radius:10px;padding:14px 16px;background:rgba(0,0,0,0.15);}
+  .price-table tr:last-child{margin-bottom:0;}
+  .price-table td{padding:3px 0;border-bottom:none;}
+  .price-table td:before{content:attr(data-label);display:block;font-size:0.68rem;color:var(--water);text-transform:uppercase;letter-spacing:1.5px;margin-top:6px;}
+  .price-table td:first-child:before{margin-top:0;}
+  .price-table .val{font-size:1.05rem;}
+  .infographic{margin:24px 0 4px;}
+  .infographic-hint{margin-bottom:36px;}
+}
 </style>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
@@ -276,7 +291,12 @@ footer{background:#060e1c;border-top:1px solid rgba(255,255,255,0.06);padding:40
     <p class="body-text">A snake clears a clog by punching a hole through it — the line drains again, but the grease, scale, and sludge lining the pipe walls are still there, narrowing the line and setting up the next backup. Hydro jetting is different. We feed a hose down the line with a specialized nozzle on the end that fires high-pressure water forward to break up the blockage and backward to scour the full interior wall of the pipe clean, 360 degrees around, for the entire length of the run.</p>
     <p class="body-text">The result isn't just an open line — it's a line restored close to its original interior diameter. That's why jetting holds up longer than snaking alone, and why it's the standard method for anything beyond a simple, isolated clog: grease buildup, root intrusion, mineral scale, sludge, and the kind of years-of-buildup blockages that keep coming back no matter how many times you snake them.</p>
 
-    <img class="infographic" src="hydro-jetting-infographic.jpg" alt="Hydro jetting before and after — root intrusion and grease buildup cleared from pipe interior" loading="lazy" width="1616" height="973">
+    <div class="infographic-wrap">
+      <a href="hydro-jetting-infographic.jpg" target="_blank" rel="noopener" aria-label="View full-size hydro jetting infographic">
+        <img class="infographic" src="hydro-jetting-infographic.jpg" alt="Hydro jetting before and after — root intrusion and grease buildup cleared from pipe interior" loading="lazy" width="1616" height="973">
+      </a>
+    </div>
+    <p class="infographic-hint">🔍 Tap to view full size</p>
 
     <hr class="divider">
 
@@ -314,10 +334,10 @@ footer{background:#060e1c;border-top:1px solid rgba(255,255,255,0.06);padding:40
       <table class="price-table">
         <thead><tr><th>Service</th><th>Price Range</th><th>Notes</th></tr></thead>
         <tbody>
-          <tr><td>Branch / Fixture Line Jetting</td><td class="val">$300–$450</td><td>Kitchen, bath, laundry lines</td></tr>
-          <tr><td>Main Drain / Sewer Lateral Jetting</td><td class="val">$400–$600</td><td>Camera inspection available</td></tr>
-          <tr><td>Root Intrusion Clearing</td><td class="val">$450–$700</td><td>Root-cutting nozzle, camera-verified</td></tr>
-          <tr><td>Commercial / Grease Line Jetting</td><td class="val">Custom quote</td><td>One-time or scheduled maintenance</td></tr>
+          <tr><td data-label="Service">Branch / Fixture Line Jetting</td><td class="val" data-label="Price Range">$300–$450</td><td data-label="Notes">Kitchen, bath, laundry lines</td></tr>
+          <tr><td data-label="Service">Main Drain / Sewer Lateral Jetting</td><td class="val" data-label="Price Range">$400–$600</td><td data-label="Notes">Camera inspection available</td></tr>
+          <tr><td data-label="Service">Root Intrusion Clearing</td><td class="val" data-label="Price Range">$450–$700</td><td data-label="Notes">Root-cutting nozzle, camera-verified</td></tr>
+          <tr><td data-label="Service">Commercial / Grease Line Jetting</td><td class="val" data-label="Price Range">Custom quote</td><td data-label="Notes">One-time or scheduled maintenance</td></tr>
         </tbody>
       </table>
     </div>
